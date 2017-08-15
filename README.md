@@ -1,1 +1,2 @@
-# WebApp
+# app
+Used for application development

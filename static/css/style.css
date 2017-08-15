@@ -1,0 +1,42 @@
+#login
+    {
+    margin-top: 10%;
+    margin-right: 20%;
+    margin-left: 20%;
+    box-shadow: 0 0 18px #ccc;
+    }
+
+
+body
+ {
+    background: #fffeea;
+    font-family: vardana;
+    color:black;
+    padding: 30px
+ }
+
+h4
+ {
+ font-size: 36px;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ text-align: center;
+ color: gray;
+ }
+
+h2
+ {
+ font-size: 48px;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ text-align: left;
+ color: green;
+ }
+
+input.placeholder
+{
+ text-align: center;
+ text-transform: uppercase;
+ }
+
+

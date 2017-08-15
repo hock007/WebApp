@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webapp</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+    <style>
+        h1
+        {
+        color: gray;
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 50px;
+        text-transform: ;capitalize
+        }
+    </style>
+</head>
+
+    <body>
+
+        <h2>webapp</h2>
+        {% if session['name'] %}
+        <h1>Welcome :&emsp;{{session['name']}}
+        {% else %}
+        You still didn't set your Email, do it <a href="{{ url_for('signin') }}">here</a>
+        {% endif %} &emsp
+        <a href="{{ url_for('clearsession') }}">Logout</a></h1>
+
+        <div id="login" class="span3 well well-large offset4">
+        <center><h4>WHO AM I<br></center></div>
+
+    </body>
+</html>

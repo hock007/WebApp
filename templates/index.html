@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webapp</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+
+<body>
+    <h2>webapp</h2>
+    <div id="login" class="span3 well well-large offset4">
+    <center>
+        <h4>Sign into your account</h4><br>
+        <form class="form" action="/login" method="post">
+            <table>
+            <tr>
+                <th>EMAIL ID :</th><th><input type="text" size="30" name="email" required=""></tr>
+            </tr>
+
+            <tr>
+                <th>PASSWORD :</th><th><input type="password" size="30" name="password" required=""></tr>
+            </tr>
+
+            <tr>
+                <th><label class="checkbox" for="rememberme"></th>
+                <th><input type="checkbox" /> Remember me</label></th>
+            </tr>
+
+            <tr>
+                <th></th>
+                <th><input class="btn btn-success" type="submit" value="Signin">or
+                    <a class="btn" href="signup">Create Account</a></th>
+            </tr>
+            </table>
+        </form>
+    </center>
+    </div>
+</body>
+</html>

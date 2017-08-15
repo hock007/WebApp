@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webapp</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+    <style>
+        h1
+        {
+        color: gray;
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 50px;
+        text-transform: ;capitalize
+        }
+    </style>
+</head>
+    <body>
+
+        <h2>webapp</h2>
+                <h1>
+        {% if session['name'] %}Welcome :&emsp;{{session['name']}}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <a href="{{ url_for('clearsession') }}">Logout</a>
+        {% else %}
+                    <p style="color: red"> You still didn't set your Email, do it
+                        <a href="{{ url_for('signin') }}">here</a></p>
+        {% endif %} </h1>
+
+
+   <div id="login" class="span3 well well-large offset4">
+        <center>
+            <h4>CREATE SURVEY</h4><br>
+            <a href="/create_survey"><input class="btn btn-success" type="submit" value="CREATE" /></a>
+        </center>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Webapp</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        var rowCount = 0;
+
+        function addMoreRows(frm) {
+            rowCount ++;
+
+            var recRow = '<p id="rowCount'+rowCount+'"><tr>';
+            recRow += '<td><input type="text" style="text-align: center" maxlength="120" id="key' + rowCount + '" name="key' + rowCount +'" placeholder="Key" required=""/></td>';
+            recRow += '<td><input type="text" style="text-align: center" maxlength="120" id="value' + rowCount + '" name="value' + rowCount +'" placeholder="Value" required=""/></td></tr>';
+            recRow += '&emsp;<a href="javascript:void(0);" onclick="removeRow('+rowCount+');">Delete</a></p>';
+            $('#addedRows').append(recRow);
+            $('#rowCount').val(""+rowCount);
+            }
+
+            function removeRow(removeNum) {
+                $('#rowCount'+removeNum).remove();
+            }
+
+    </script>
+    <style>
+        h1 {
+        color: gray;
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 50px;
+        text-transform: ;capitalize }
+
+
+        #login {
+        margin-top: 0%;
+        margin-right: 20%;
+        margin-left: 20%;
+        box-shadow: 0 0 18px #ccc; }
+
+    </style>
+</head>
+
+<body>
+<h2>webapp</h2>
+                <h1>
+        {% if session['name'] %}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <a href="{{ url_for('clearsession') }}">Logout</a>
+        {% else %}
+                    <p style="color: red"> You still didn't set your Email, do it
+                        <a href="{{ url_for('signin') }}">here</a></p>
+        {% endif %} </h1>
+
+    <div id="login" class="span3 well well-large offset4">
+    <center>
+        <form action="/save_survey" method="post">
+            <input type="hidden" name="rowCount" id="rowCount" value="0">
+            <b>SURVEY TITLE : <input type="text" required="" style="text-align: center" name="title" id="title" placeholder="--- Please Enter Survey Title --- " size="40"></b>
+            <br><br>
+
+            Add Questions/Items of survey as follows:-<br>
+
+            <div id="addedRows"></div><button type="button" class="btn btn-warning" onclick="addMoreRows(this.form);">ADD ITEM</button>
+            <p><hr>Once you are done with survey creation, submit it to save!!! <br>
+            <button type="submit" class="btn btn-success">SUBMIT</button><hr></p>
+
+        </form>
+
+    </center>
+    </div>
+</body>
+</html>
